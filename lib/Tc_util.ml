@@ -127,7 +127,7 @@ module Parser = struct
 
   (* f g h = (f g) h *)
   and app' e s = (
-    (brackets typ >>= fun t -> app' (TypApp (e, t)))
+    (sqaures typ >>= fun t -> app' (TypApp (e, t)))
     <|> (get >>= fun e' -> app' (App (e, e')))
     <|> (return e)) s
                                
